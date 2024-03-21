@@ -1,0 +1,7 @@
+#    Carga en memoria el archivo sample_grocery.csv, eso se convierte efectivamente en tu fuente de datos.
+    Utilizando Flask crea los siguientes recursos (HTTP Methods):
+
+#    GET /items -> Este metodo debe regresar una lista de todos los articulos cargados en el punto 1.
+#    GET /item/{SKU} -> Este metodo debe regresar el elemento de la lista que haga match con ese SKU o vacio si el SKU no existe.
+#    POST /item -> Este metodo debe agregar un articulo a la fuente de datos cargada en el punto 1.
+#   DELETE /item/{SKU} -> Este metodo debe borrar el SKU de la fuente de datos cargada en el punto 1.
