@@ -1,14 +1,24 @@
-from patterns import csv_utils
-from patterns import web_report
-
-CSV_FILE = "../taxi-data.csv"
-
+from patterns.report_factory import ReportFactory
+from patterns.report_adapter import ReportAdapter
+from patterns.csv_utils import parse_file
 
 def main():
-    rides = csv_utils.parse_file(CSV_FILE)
-    html_report = web_report.create_content(rides)
-    web_report.create_file(html_report)
+    rides = parse_file("taxi-data.csv")
 
+    # reporte en consola
+    print_report = ReportFactory.create_report("print", rides)
+    print_adapter = ReportAdapter(print_report)
+    print_report_content = print_adapter.generate()
+    print("Reporte consola")
+    print(print_report_content)
 
-if __name__ == '__main__':
+    # reporte html
+    html_report = ReportFactory.create_report("html", rides)
+    html_adapter = ReportAdapter(html_report)
+    html_report_content = html_adapter.generate()
+    from patterns.web_report import create_file
+    create_file(html_report_content)
+    print("\nReporte html correcto")
+
+if __name__ == "__main__":
     main()

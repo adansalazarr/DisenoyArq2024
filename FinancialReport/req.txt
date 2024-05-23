@@ -1,0 +1,12 @@
+Desarrolla lo siguiente:
+
+Crea el modulo print_reporter.py donde implementes la funcionalidad para mostrar en consola el reporte financiero: 
+    El formato en consola deberá usar en su lugar saltos de línea "\n", tabuladores "\t" 
+    y espaciado para dar formato al reporte final.
+    El formato en consola deberán mostrarse entre paréntesis, por ejemplo (-32).
+
+Refactoriza tu codigo para incluir 1 Patron de Diseño de cada categoria
+    Deberas implementar 1 patron de diseño (creational, estructural y comportamiento) 
+    en cualquier parte del codebase funcional asegurandote que la funcionalidad permanece correcta (reporte HTML y consola).
+
+Las pruebas unitarias que generaste siguen funcionando correctamente.
