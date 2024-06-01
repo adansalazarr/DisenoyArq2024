@@ -1,6 +1,6 @@
 Proyecto Grocery Store
 
-Liga a video: 
+Liga a video: https://drive.google.com/file/d/1KJV1QltBjGppY71yD3iH8k1uhlORJlgZ/view?usp=share_link
 
 Este proyecto es una aplicación web construida con Python y Flask que permite gestionar un inventario de artículos.
 ## Funcionalidades
