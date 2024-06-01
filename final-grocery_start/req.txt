@@ -1,0 +1,33 @@
+Acerca del source code de tu proyecto se evaluaran los siguientes puntos:
+
+    Sigues una estructura (top-layering) tecnica o de dominio.
+
+    Tu proyecto cuenta con toda la funcionalidad descrita.
+
+    Tu proyecto cuenta con al menos 5 pruebas unitarias de la funcionalidad de tu software.
+    
+    Tu proyecto sigue las buenas practicas de SOLID y haces referencia a ellas en tu archivo README.md
+
+    Tu proyecto sigue al menos 4 patrones de diseño y haces referencia a ellos en tu archivo README.md
+        El archivo README.md ademas de documentar las practicas de SOLID y patrones de diseño debera responder a las siguientes preguntas sobre caracteristicas de arquitectura:
+        ¿Cuales son el top 5 de caracteristicas de arquitectura del diseño actual de tu proyecto? Justifica tu respuesta.
+        ¿Si la aplicacion migrara a una arquitectura de microservicios, ¿Cuales serian el top 5 de caracteristicas de arquitectura? Justifica tu respuesta
+
+nstrucciones
+Tomando como base el siguiente proyecto de python: grocery_start.zip
+
+Codifica la siguiente logica de negocio:
+
+    Genera un script que te permita cargar el archivo sample_grocey.csv a una base de datos local como Posgresql o Mysql.
+        TIP: Puedes diseñar el modelo entidad relacion de apoyo si asi lo crees conveniente.
+        TIP: Puedes apoyarte en un ORM para cargar tu archivo directamente a tu BD.
+
+    Genera un REST API para los siguientes recursos (HTTP Methods)
+        GET /item -> Este metodo debe regresar una lista de todos los articulos de la BD.
+        POST /item -> Este metodo debe agregar un articulo a la BD.
+        DELETE /item/{SKU} -> Este metodo debe borrar un elemento de la BD de acuerdo a su SKU.
+        GET /item/{SKU}/convert?currency=MXN -> Obten un elemento de la lista donde su cantidad esta expresada por el parametro de currency
+            Tomen los valores expresados en sample_grocery.csv como USD, es decir convertiran de USD a cualquier otra moneda
+            Utiliza una API como: https://exchangeratesapi.io/documentation/ Links to an external site. para realizar las conversiones de moneda.
+
+    Genera una o mas vistas de HTML (Template) para poder Agregar, Editar o Borrar articulos de tu base de datos.

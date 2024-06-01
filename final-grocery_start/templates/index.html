@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Grocery ITESM</title>
+</head>
+<body>
+    <!-- Agregar ITEM POST-->
+    <h1>Grocery ITEMS</h1>
+    <h3>Adán Salazar / A01562006</h3>
+    <h4>Diseño y Arquitectura de Software</h4>
+    <form action="{{ url_for('grocery_routes.add_item') }}" method="post">
+        <label for="sku">SKU:</label>
+        <input type="text" id="sku" name="sku"><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description"><br>
+        <label for="price">Price (USD) :</label>
+        <input type="text" id="price" name="price"><br>
+        <label for="quantity">Quantity:</label>
+        <input type="text" id="quantity" name="quantity"><br>
+        <label for="expiration_date">Expiration Date:</label>
+        <input type="text" id="expiration_date" name="expiration_date"><br>
+        <input type="submit" value="Add Item">
+    </form>
+        <!-- ITEMS actuales -->
+    <table>
+        <thead>
+            <tr>
+                <th>SKU</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price(USD)</th>
+                <th>Quantity</th>
+                <th>Expiration Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.sku }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.expiration_date }}</td>
+                <td>
+                    <form action="{{ url_for('grocery_routes.delete_item', sku=item.sku) }}" method="post" style="display:inline;">
+                        <input type="submit" value="Delete">
+                    </form>
+                    <form action="{{ url_for('grocery_routes.edit_item', sku=item.sku) }}" method="get" style="display:inline;">
+                        <input type="submit" value="Edit">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        <!-- Editar ITEM -->
+
+    {% if item_to_edit %}
+    <h2>Edit Item</h2>
+    <form action="{{ url_for('grocery_routes.edit_item', sku=item_to_edit.sku) }}" method="post">
+        <label for="sku">SKU:</label>
+        <input type="text" id="sku" name="sku" value="{{ item_to_edit.sku }}" ><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ item_to_edit.name }}"><br>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" value="{{ item_to_edit.description }}"><br>
+        <label for="price">Price (USD):</label>
+        <input type="text" id="price" name="price" value="{{ item_to_edit.price }}"><br>
+        <label for="quantity">Quantity:</label>
+        <input type="text" id="quantity" name="quantity" value="{{ item_to_edit.quantity }}"><br>
+        <label for="expiration_date">Expiration Date:</label>
+        <input type="text" id="expiration_date" name="expiration_date" value="{{ item_to_edit.expiration_date }}"><br>
+        <input type="submit" value="Update Item">
+    </form>
+    {% endif %}
+</body>
+</html>
